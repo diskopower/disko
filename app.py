@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
-from werkzeug.security import generate_password_hash, check_password_hash import os
+from werkzeug.security import generate_password_hash, check_password_hash, os
 # Импорт необходимых модулей из Flask:
 # - Flask: основной класс для создания веб-приложения.
 # - render_template: функция для рендеринга HTML-шаблонов.
