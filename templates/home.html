@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1>Список опросов</h1>
+    {% if user %}
+        <p>Вы вошли как {{ user.username }} | <a href="{{ url_for('logout') }}">Выйти</a></p>
+        <a href="/create">Создать новый опрос</a>
+    {% else %}
+        <p><a href="{{ url_for('login') }}">Войти</a> | <a href="{{ url_for('register') }}">Зарегистрироваться</a></p>
+    {% endif %}
+    <ul>
+        {% for poll in polls %}
+            <li>
+                {{ poll.question }}
+                <a href="{{ url_for('vote', poll_id=poll.id) }}">Голосовать</a> |
+                <a href="{{ url_for('results', poll_id=poll.id) }}">Результаты</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

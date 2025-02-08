@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты</title>
+</head>
+<body>
+    <h1>{{ poll.question }}</h1>
+    <h2>Результаты:</h2>
+    <ul>
+        {% for option in poll.options %}
+            <li>{{ option.text }}: {{ option.votes }} голосов</li>
+        {% endfor %}
+    </ul>
+    <a href="/">На главную</a>
+</body>
+</html>
