@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash import os
 # Импорт необходимых модулей из Flask:
 # - Flask: основной класс для создания веб-приложения.
 # - render_template: функция для рендеринга HTML-шаблонов.
@@ -13,7 +13,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 # Создание экземпляра Flask-приложения. __name__ передается для определения корневого пути приложения.
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://vlados:123@localhost/voting_app'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://voting_user:KCkp0eLJB7hA5yXD6xwump7H5Sg2Uivk@dpg-cujiitggph6c73bgmgo0-a/voting_app_68c4')
 # Настройка URI для подключения к базе данных PostgreSQL. 
 # Формат строки подключения: postgresql://username:password@localhost/dbname
 
